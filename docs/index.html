@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Création de la GitHub App de test</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --accent: #1f6feb; --accent-fg: #ffffff; --border: #d1d9e0; --code-bg: #f6f8fa; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0d1117; --fg: #e6edf3; --muted: #9198a1; --accent: #388bfd; --accent-fg: #ffffff; --border: #3d444d; --code-bg: #151b23; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 640px; margin: 48px auto; padding: 0 16px; }
+  h1 { font-size: 1.5rem; margin: 0 0 8px; }
+  p { color: var(--muted); }
+  button { margin: 24px 0; padding: 14px 28px; font-size: 1.1rem; font-weight: 600; border: 0; border-radius: 8px; background: var(--accent); color: var(--accent-fg); cursor: pointer; }
+  details { margin-top: 16px; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; overflow-x: auto; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>GitHub App de test : sq-branch-plugin-test-8a5e29</h1>
+  <p>Ce bouton envoie le manifeste ci-dessous à GitHub, qui propose de créer l'App sur votre compte. Aucun secret n'est contenu dans cette page.</p>
+  <form id="f" action="https://github.com/settings/apps/new" method="post">
+    <input type="hidden" name="manifest" id="manifest">
+    <button type="submit">Créer la GitHub App</button>
+  </form>
+  <details>
+    <summary>Manifeste envoyé</summary>
+    <pre id="preview"></pre>
+  </details>
+</main>
+<script>
+  // GitHub App manifest: private app, no active webhook, minimal permissions for PR decoration.
+  const manifest = {
+    name: "sq-branch-plugin-test-8a5e29",
+    url: "https://github.com/juliensl/depot-test-sonarbranch",
+    description: "Test of PR decoration for sonarqube-community-branch-plugin PR 1316",
+    hook_attributes: { url: "https://juliensl.github.io/depot-test-sonarbranch/", active: false },
+    redirect_url: "https://juliensl.github.io/depot-test-sonarbranch/callback.html",
+    public: false,
+    default_permissions: { checks: "write", pull_requests: "write", metadata: "read" },
+    default_events: []
+  };
+  const json = JSON.stringify(manifest, null, 2);
+  document.getElementById("manifest").value = JSON.stringify(manifest);
+  document.getElementById("preview").textContent = json;
+</script>
+</body>
+</html>
