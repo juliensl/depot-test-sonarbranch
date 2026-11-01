@@ -16,3 +16,9 @@ function prSecond(input) {
   return null;
 }
 module.exports.prSecond = prSecond;
+
+function prThird(list) {
+  var copy = list;
+  return copy;
+}
+module.exports.prThird = prThird;
