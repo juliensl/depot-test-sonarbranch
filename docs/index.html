@@ -20,7 +20,7 @@
 </head>
 <body>
 <main>
-  <h1>GitHub App de test : sq-branch-plugin-test-8a5e29</h1>
+  <h1>GitHub App de test : sq-branch-plugin-test-713e1a</h1>
   <p>Ce bouton envoie le manifeste ci-dessous à GitHub, qui propose de créer l'App sur votre compte. Aucun secret n'est contenu dans cette page.</p>
   <form id="f" action="https://github.com/settings/apps/new" method="post">
     <input type="hidden" name="manifest" id="manifest">
@@ -34,9 +34,9 @@
 <script>
   // GitHub App manifest: private app, no active webhook, minimal permissions for PR decoration.
   const manifest = {
-    name: "sq-branch-plugin-test-8a5e29",
+    name: "sq-branch-plugin-test-713e1a",
     url: "https://github.com/juliensl/depot-test-sonarbranch",
-    description: "Test of PR decoration for sonarqube-community-branch-plugin PR 1316",
+    description: "Test of PR decoration for sonarqube-community-branch-plugin (SonarQube 26.8 and later)",
     hook_attributes: { url: "https://juliensl.github.io/depot-test-sonarbranch/", active: false },
     redirect_url: "https://juliensl.github.io/depot-test-sonarbranch/callback.html",
     public: false,
