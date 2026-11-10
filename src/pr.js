@@ -8,7 +8,6 @@ function prOnly(value) {
 module.exports = { prOnly };
 
 function prSecond(input) {
-  var unused = 42;
   try {
     return JSON.parse(input);
   } catch (e) {
@@ -16,3 +15,9 @@ function prSecond(input) {
   return null;
 }
 module.exports.prSecond = prSecond;
+
+function prThird(list) {
+  var copy = list;
+  return copy;
+}
+module.exports.prThird = prThird;
